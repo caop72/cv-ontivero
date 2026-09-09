@@ -258,14 +258,14 @@
         }
         
         /* =========================================
-           CONFIGURACIÓN PARA IMPRESIÓN (1 PÁGINA)
+           CONFIGURACIÓN PARA IMPRESIÓN (1 PÁGINA + FOTO A LA IZQUIERDA)
            ========================================= */
         @media print {
             body {
                 background: white;
                 padding: 0;
                 margin: 0;
-                display: block; /* Quita el centrado para aprovechar toda la página */
+                display: block;
             }
             .cv-container {
                 max-width: 100%;
@@ -273,48 +273,81 @@
                 border-radius: 0;
                 box-shadow: none;
             }
+            /* CONFIGURACIÓN DE LA CABECERA PARA IMPRIMIR */
             .blue-header {
                 padding: 10px 20px;
+                display: flex;
+                align-items: flex-start; /* Alinea la foto arriba a la izquierda */
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
+            /* FOTO MÁS PEQUEÑA A LA IZQUIERDA */
             .photo-frame {
-                width: 70px;
-                height: 70px;
+                width: 60px;
+                height: 60px;
+                border: 2px solid #ffffff;
+                margin-right: 15px;
+                flex-shrink: 0;
             }
+            /* La información fluye a la derecha de la foto */
+            .header-info {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+            .header-info .name {
+                font-size: 18px;
+                margin-bottom: 2px;
+            }
+            .header-info .subtitle {
+                font-size: 12px;
+                margin-bottom: 2px;
+            }
+            .header-contact {
+                font-size: 10px;
+                gap: 3px 10px;
+            }
+            .header-contact span {
+                padding: 1px 8px;
+            }
+            
             .body-content {
-                padding: 10px 20px 10px 20px;
-                gap: 15px;
+                padding: 8px 15px 8px 15px;
+                gap: 12px;
             }
             .section-title {
-                font-size: 12px;
-                margin: 10px 0 5px 0;
-                padding-bottom: 2px;
+                font-size: 11px;
+                margin: 6px 0 3px 0;
+                padding-bottom: 1px;
             }
             .profile-text, .exp-item ul li, .last-role ul li {
-                font-size: 11px;
+                font-size: 10px;
                 line-height: 1.3;
             }
             .exp-item, .last-role {
-                margin-bottom: 8px;
+                margin-bottom: 6px;
+            }
+            .last-role {
+                padding: 6px 10px;
             }
             .skills-list span {
-                font-size: 11px;
-                padding: 2px 8px;
+                font-size: 10px;
+                padding: 1px 6px;
             }
             .achievement-text {
-                font-size: 11px;
+                font-size: 10px;
+                line-height: 1.3;
             }
             .formation-item {
-                font-size: 11px;
+                font-size: 10px;
                 line-height: 1.3;
             }
             .welcome-screen, .download-btn {
                 display: none !important;
             }
             
-            /* Evita que el contenido se corte a mitad de página */
-            .exp-item, .last-role, .formation-item {
+            /* Protege los bloques de partirse por la mitad */
+            .exp-item, .last-role, .formation-item, .col-right, .col-left, .achievement-text {
                 page-break-inside: avoid;
             }
         }
