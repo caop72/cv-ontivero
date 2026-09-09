@@ -270,7 +270,7 @@
     <!-- BANDA AZUL CON FOTO Y DATOS -->
     <div class="blue-header">
         <div class="photo-frame">
-            <img src="foto civil de cesar.png" alt="Foto de César Augusto Ontivero Pérez">
+            <img src="foto.png" alt="Foto">
         </div>
         <div class="header-info">
             <div class="name">CÉSAR AUGUSTO ONTIVERO PÉREZ</div>
