@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- ETIQUETAS PARA COMPARTIR EN REDES SOCIALES (TELEGRAM, WHATSAPP, ETC) -->
+    <!-- ETIQUETAS PARA COMPARTIR EN REDES SOCIALES -->
     <title>CV - César Augusto Ontivero Pérez</title>
     <meta name="description" content="Currículum Vitae de Msc. César Augusto Ontivero Pérez. Coronel, Magister Scientiarum en Seguridad de la Nación." />
     <meta property="og:title" content="CV - César Augusto Ontivero Pérez" />
@@ -36,7 +36,7 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.15);
             overflow: hidden;
         }
-        /* BANDA AZUL SUPERIOR - estilo militar/ejecutivo */
+        /* BANDA AZUL SUPERIOR */
         .blue-header {
             background: #0b1a3a;
             padding: 18px 35px 14px 35px;
@@ -61,8 +61,7 @@
         .photo-frame img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Esto centra y estira perfectamente la imagen sin deformarla */
-            /* Se eliminó el transform: scale() para que se vea natural */
+            object-fit: cover;
         }
         .header-info {
             color: #ffffff;
@@ -109,7 +108,6 @@
             flex: 1 1 35%;
             min-width: 220px;
         }
-        /* Títulos */
         .section-title {
             font-size: 15px;
             font-weight: 700;
@@ -271,7 +269,6 @@
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
-            /* OCULTAR PANTALLA DE BIENVENIDA Y BOTÓN AL IMPRIMIR */
             .welcome-screen, .download-btn {
                 display: none !important;
             }
@@ -281,7 +278,9 @@
             }
         }
 
-        /* PANTALLA DE BIENVENIDA AUTOMÁTICA */
+        /* =========================================
+           PORTADA DE BIENVENIDA CINEMATOGRÁFICA
+           ========================================= */
         .welcome-screen {
             position: fixed;
             top: 0;
@@ -299,26 +298,84 @@
             padding: 20px;
             opacity: 1;
             transition: opacity 1s ease;
+            animation: welcomeZoom 5s ease forwards;
         }
+
+        /* Animación de zoom lento */
+        @keyframes welcomeZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.08); }
+        }
+
+        .welcome-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            overflow: hidden;
+            margin-bottom: 25px;
+            background: white;
+        }
+
+        .welcome-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .welcome-screen h1 {
-            font-size: 34px;
-            margin-bottom: 10px;
-            font-weight: 700;
+            font-size: 42px;
+            margin-bottom: 8px;
+            font-weight: 800;
             letter-spacing: 1px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.4);
         }
+
         .welcome-screen h2 {
-            font-size: 20px;
+            font-size: 24px;
             font-weight: 300;
-            margin-bottom: 10px;
-            opacity: 0.9;
+            margin-bottom: 15px;
+            opacity: 0.95;
+            letter-spacing: 0.5px;
         }
+
         .welcome-screen p {
-            font-size: 16px;
+            font-size: 18px;
             color: #aeb9d4;
+            font-weight: 400;
         }
+
+        /* Barra de progreso */
+        .progress-bar-container {
+            position: absolute;
+            bottom: 40px;
+            width: 60%;
+            max-width: 400px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #ffffff, #aeb9d4);
+            border-radius: 10px;
+            animation: fillBar 5s linear forwards;
+        }
+
+        @keyframes fillBar {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        /* Desvanecimiento */
         .fade-out {
             opacity: 0;
             pointer-events: none;
+            transition: opacity 1s ease;
         }
 
         /* BOTÓN FLOTANTE PARA DESCARGAR PDF */
@@ -354,11 +411,19 @@
 </head>
 <body>
 
-    <!-- PANTALLA DE BIENVENIDA AUTOMÁTICA -->
+    <!-- PORTADA DE BIENVENIDA -->
     <div id="welcome" class="welcome-screen">
+        <div class="welcome-photo">
+            <img src="foto.png" alt="Foto de César Augusto Ontivero Pérez">
+        </div>
         <h1>Curriculum Vitae</h1>
         <h2>Msc. César Augusto Ontivero Pérez</h2>
         <p>Coronel · Magister Scientiarum en Seguridad de la Nación</p>
+        
+        <!-- Barra de progreso -->
+        <div class="progress-bar-container">
+            <div class="progress-bar"></div>
+        </div>
     </div>
 
     <!-- BOTÓN FLOTANTE PARA IMPRIMIR / PDF -->
@@ -369,8 +434,6 @@
 
     <!-- CUERPO DEL CURRICULUM -->
     <div class="cv-container">
-
-        <!-- BANDA AZUL CON FOTO Y DATOS -->
         <div class="blue-header">
             <div class="photo-frame">
                 <img src="foto.png" alt="Foto de César Augusto Ontivero Pérez">
@@ -386,19 +449,13 @@
             </div>
         </div>
 
-        <!-- CUERPO DOS COLUMNAS -->
         <div class="body-content">
-
-            <!-- COLUMNA IZQUIERDA -->
             <div class="col-left">
-
-                <!-- PERFIL PROFESIONAL -->
                 <div class="section-title">Perfil Profesional</div>
                 <div class="profile-text">
                     Coronel en Reserva Activa y Magister en Seguridad de la Nación. Especialista en Alta Gerencia, Gestión del Talento Humano y Continuidad de Operaciones en organizaciones de gran escala. Experiencia demostrada en la optimización de procesos logísticos, mitigación de riesgos estratégicos y diseño de sistemas tecnológicos automatizados para la toma de decisiones.
                 </div>
 
-                <!-- ÚLTIMO CARGO (destacado) -->
                 <div class="section-title">Último cargo</div>
                 <div class="last-role">
                     <div class="role-title">Jefe de la Reserva y Movilización del Ejército Bolivariano <span class="role-date">— Caracas D.C. — Dic 2024 – Ago 2026</span></div>
@@ -409,9 +466,7 @@
                     </ul>
                 </div>
 
-                <!-- EXPERIENCIA LABORAL -->
                 <div class="section-title">Experiencia Laboral</div>
-
                 <div class="exp-item">
                     <div class="exp-header">
                         <span>Sub-Director de Educación del Ejército Bolivariano</span>
@@ -422,7 +477,6 @@
                         <li>Coordinación de la estructura educativa, el desarrollo organizacional y los objetivos estratégicos.</li>
                     </ul>
                 </div>
-
                 <div class="exp-item">
                     <div class="exp-header">
                         <span>Jefe de Talento Humano Educativo del Ejército Bolivariano</span>
@@ -433,7 +487,6 @@
                         <li>Implementación de metodologías de trabajo orientadas a la mejora del clima organizacional y la reducción de la rotación de personal.</li>
                     </ul>
                 </div>
-
                 <div class="exp-item">
                     <div class="exp-header">
                         <span>Jefe de Gestión Social / Autoridad Única de Ciudad Tiuna</span>
@@ -443,54 +496,46 @@
                         <li>Supervisión de planes de desarrollo social integral, organización colectiva y liderazgo comunal.</li>
                     </ul>
                 </div>
+            </div>
 
-            </div><!-- /col-left -->
-
-            <!-- COLUMNA DERECHA -->
             <div class="col-right">
-
-                <!-- FORMACIÓN -->
                 <div class="section-title">Formación</div>
-
                 <div class="formation-item">
                     <strong>Magister en Seguridad de la Nación</strong>, Caracas D.C. — año 2024<br />
                     <strong>Doctorando en Seguridad de la Nación</strong>, Caracas D.C. — presente.
                     <span class="institute">Instituto de Altos Estudios de Seguridad de la Nación</span>
                 </div>
-
                 <div class="formation-item" style="margin-top:10px;">
                     <strong>Oficial de Comando del Ejército Bolivariano en situación de Reserva Activa</strong>
                     <span class="institute">Academia Militar de Venezuela, Caracas D.C. — Ago90 – Jul95</span>
                 </div>
 
-                <!-- HABILIDADES TÉCNICAS -->
                 <div class="section-title">Habilidades técnicas</div>
                 <div class="skills-list">
                     <span><strong>Ofimática y Gestión de Datos:</strong> Excel, Google Sheets, Word, PowerPoint.</span>
                     <span><strong>Desarrollo y Control de Versiones:</strong> VS Code, GitHub, Git.</span>
                 </div>
 
-                <!-- LOGROS ALCANZADOS -->
                 <div class="section-title">Logros alcanzados</div>
                 <div class="achievement-text">
                     Diseño e implementación del Sistema Automatizado de Control de la Reserva del Ejército Bolivariano, así como el Sistema de Atención a distancia del reservista.
                 </div>
+            </div>
+        </div>
+    </div>
 
-            </div><!-- /col-right -->
-
-        </div><!-- /body-content -->
-
-    </div><!-- /cv-container -->
-
-    <!-- SCRIPT PARA DESVANECER LA PANTALLA DE BIENVENIDA -->
+    <!-- SCRIPT DE TEMPORIZADOR -->
     <script>
+        // Espera 5 segundos (5000 milisegundos) para activar el desvanecimiento
         setTimeout(function() {
             var welcomeScreen = document.getElementById("welcome");
             welcomeScreen.classList.add("fade-out");
+            
+            // Después de 1 segundo (cuando termina el fade), lo elimina del DOM
             setTimeout(function() {
                 welcomeScreen.style.display = "none";
             }, 1000);
-        }, 2500);
+        }, 5000);
     </script>
 
 </body>
