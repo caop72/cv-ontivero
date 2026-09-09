@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV - César Augusto Ontivero Pérez</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', 'Calibri', Roboto, Arial, sans-serif;
+            background: #dce1e8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 30px 20px;
+        }
+        .cv-container {
+            max-width: 1050px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+        /* BANDA AZUL SUPERIOR - estilo militar/ejecutivo */
+        .blue-header {
+            background: #0b1a3a;
+            padding: 18px 35px 14px 35px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .photo-frame {
+            width: 125px;
+            height: 125px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 4px solid #ffffff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .header-info {
+            color: #ffffff;
+            flex: 1;
+        }
+        .header-info .name {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+        .header-info .subtitle {
+            font-size: 16px;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-top: 2px;
+        }
+        .header-contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 18px;
+            margin-top: 6px;
+            font-size: 13.5px;
+            opacity: 0.95;
+        }
+        .header-contact span {
+            background: rgba(255,255,255,0.10);
+            padding: 2px 12px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        /* CUERPO EN DOS COLUMNAS */
+        .body-content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 24px 35px 35px 35px;
+            gap: 30px;
+        }
+        .col-left {
+            flex: 1 1 58%;
+            min-width: 280px;
+        }
+        .col-right {
+            flex: 1 1 35%;
+            min-width: 220px;
+        }
+        /* Títulos */
+        .section-title {
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #0b1a3a;
+            border-bottom: 3px solid #0b1a3a;
+            padding-bottom: 4px;
+            margin: 18px 0 10px 0;
+        }
+        .section-title:first-of-type {
+            margin-top: 0;
+        }
+        .profile-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #1f2a3f;
+            text-align: justify;
+        }
+        .formation-item {
+            margin-bottom: 6px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .formation-item strong {
+            font-weight: 700;
+            color: #0b1a2e;
+        }
+        .formation-item .institute {
+            display: block;
+            font-size: 13.5px;
+            color: #2c3e5a;
+            margin-left: 14px;
+            margin-top: 1px;
+        }
+        .formation-item .institute::before {
+            content: "• ";
+            color: #0b1a3a;
+            font-weight: 700;
+        }
+        .last-role {
+            background: #f0f3fa;
+            border-left: 5px solid #0b1a3a;
+            padding: 10px 16px;
+            border-radius: 4px;
+            margin: 6px 0 12px 0;
+        }
+        .last-role .role-title {
+            font-weight: 700;
+            font-size: 15px;
+            color: #0b1a2e;
+        }
+        .last-role .role-date {
+            font-weight: 400;
+            color: #3e5270;
+            font-size: 13px;
+        }
+        .last-role ul,
+        .exp-item ul {
+            list-style: none;
+            margin-top: 4px;
+            padding-left: 4px;
+        }
+        .last-role ul li,
+        .exp-item ul li {
+            font-size: 13.5px;
+            line-height: 1.5;
+            padding: 2px 0 2px 18px;
+            position: relative;
+            color: #1f2a3f;
+        }
+        .last-role ul li::before,
+        .exp-item ul li::before {
+            content: "▹";
+            position: absolute;
+            left: 2px;
+            color: #0b1a3a;
+            font-weight: 700;
+        }
+        .exp-item {
+            margin-bottom: 14px;
+        }
+        .exp-item .exp-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            font-weight: 700;
+            font-size: 15px;
+            color: #0b1a2e;
+        }
+        .exp-item .exp-header .date {
+            font-weight: 400;
+            font-size: 13px;
+            color: #3e5270;
+        }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 12px;
+            padding-left: 2px;
+            margin-top: 4px;
+        }
+        .skills-list span {
+            font-size: 13.5px;
+            color: #1f2a3f;
+            background: #eef1f8;
+            padding: 3px 12px;
+            border-radius: 20px;
+        }
+        .skills-list span strong {
+            font-weight: 600;
+            color: #0b1a2e;
+        }
+        .achievement-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #1f2a3f;
+            padding-left: 2px;
+            margin-top: 4px;
+        }
+        @media (max-width: 750px) {
+            .blue-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 18px 20px;
+            }
+            .photo-frame {
+                width: 90px;
+                height: 90px;
+            }
+            .header-contact {
+                justify-content: center;
+            }
+            .body-content {
+                padding: 18px 18px 25px 18px;
+                flex-direction: column;
+            }
+            .col-left,
+            .col-right {
+                flex: 1 1 100%;
+            }
+            .exp-item .exp-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .cv-container {
+                border-radius: 0;
+                box-shadow: none;
+            }
+            .blue-header {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="cv-container">
+
+    <!-- BANDA AZUL CON FOTO Y DATOS -->
+    <div class="blue-header">
+        <div class="photo-frame">
+            <img src="foto civil de cesar.png" alt="Foto de César Augusto Ontivero Pérez">
+        </div>
+        <div class="header-info">
+            <div class="name">CÉSAR AUGUSTO ONTIVERO PÉREZ</div>
+            <div class="subtitle">Coronel · Magister Scientiarum en Seguridad de la Nación</div>
+            <div class="header-contact">
+                <span>✉ ontivero72@gmail.com</span>
+                <span>📞 +58 426 618.16.21</span>
+                <span>📍 Urb. Simón Bolívar, Ciudad Tiuna. El Valle, Caracas D.C. 1010</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CUERPO DOS COLUMNAS -->
+    <div class="body-content">
+
+        <!-- COLUMNA IZQUIERDA -->
+        <div class="col-left">
+
+            <!-- PERFIL PROFESIONAL -->
+            <div class="section-title">Perfil Profesional</div>
+            <div class="profile-text">
+                Coronel en Reserva Activa y Magister en Seguridad de la Nación. Especialista en Alta Gerencia, Gestión del Talento Humano y Continuidad de Operaciones en organizaciones de gran escala. Experiencia demostrada en la optimización de procesos logísticos, mitigación de riesgos estratégicos y diseño de sistemas tecnológicos automatizados para la toma de decisiones.
+            </div>
+
+            <!-- ÚLTIMO CARGO (destacado) -->
+            <div class="section-title">Último cargo</div>
+            <div class="last-role">
+                <div class="role-title">Jefe de la Reserva y Movilización del Ejército Bolivariano <span class="role-date">— Caracas D.C. — Dic 2024 – Ago 2026</span></div>
+                <ul>
+                    <li>Dirección estratégica de los planes de contingencia y movilización de RR.HH. a nivel nacional.</li>
+                    <li>Coordinación logística de personal y diseño de planes de planificación estratégica para la continuidad de las operaciones institucionales.</li>
+                    <li>Liderazgo en el diseño e implementación del Sistema Automatizado de Control de la Reserva, optimizando el registro de personal mediante herramientas tecnológicas y control de versiones (VS Code y GitHub).</li>
+                </ul>
+            </div>
+
+            <!-- EXPERIENCIA LABORAL -->
+            <div class="section-title">Experiencia Laboral</div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span>Sub-Director de Educación del Ejército Bolivariano</span>
+                    <span class="date">Caracas D.C. — Dic 2022 – Dic 2024</span>
+                </div>
+                <ul>
+                    <li>Supervisión de planes nacionales de adiestramiento, formación profesional y gestión del conocimiento.</li>
+                    <li>Coordinación de la estructura educativa, el desarrollo organizacional y los objetivos estratégicos.</li>
+                </ul>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span>Jefe de Talento Humano Educativo del Ejército Bolivariano</span>
+                    <span class="date">Caracas D.C. — Dic 2020 – Dic 2022</span>
+                </div>
+                <ul>
+                    <li>Liderazgo integral de los procesos de captación, evaluación del desempeño, administración de personal y relaciones laborales.</li>
+                    <li>Implementación de metodologías de trabajo orientadas a la mejora del clima organizacional y la reducción de la rotación de personal.</li>
+                </ul>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span>Jefe de Gestión Social / Autoridad Única de Ciudad Tiuna</span>
+                    <span class="date">Caracas D.C. — Dic 2018 – Dic 2020</span>
+                </div>
+                <ul>
+                    <li>Supervisión de planes de desarrollo social integral, organización colectiva y liderazgo comunal.</li>
+                </ul>
+            </div>
+
+        </div><!-- /col-left -->
+
+        <!-- COLUMNA DERECHA -->
+        <div class="col-right">
+
+            <!-- FORMACIÓN -->
+            <div class="section-title">Formación</div>
+
+            <div class="formation-item">
+                <strong>Magister en Seguridad de la Nación</strong>, Caracas D.C. — año 2024<br />
+                <strong>Doctorando en Seguridad de la Nación</strong>, Caracas D.C. — presente.
+                <span class="institute">Instituto de Altos Estudios de Seguridad de la Nación</span>
+            </div>
+
+            <div class="formation-item" style="margin-top:10px;">
+                <strong>Oficial de Comando del Ejército Bolivariano en situación de Reserva Activa</strong>
+                <span class="institute">Academia Militar de Venezuela, Caracas D.C. — Ago90 – Jul95</span>
+            </div>
+
+            <!-- HABILIDADES TÉCNICAS -->
+            <div class="section-title">Habilidades técnicas</div>
+            <div class="skills-list">
+                <span><strong>Ofimática y Gestión de Datos:</strong> Excel, Google Sheets, Word, PowerPoint.</span>
+                <span><strong>Desarrollo y Control de Versiones:</strong> VS Code, GitHub, Git.</span>
+            </div>
+
+            <!-- LOGROS ALCANZADOS -->
+            <div class="section-title">Logros alcanzados</div>
+            <div class="achievement-text">
+                Diseño e implementación del Sistema Automatizado de Control de la Reserva del Ejército Bolivariano, así como el Sistema de Atención a distancia del reservista.
+            </div>
+
+        </div><!-- /col-right -->
+
+    </div><!-- /body-content -->
+
+</div><!-- /cv-container -->
+</body>
+</html>
