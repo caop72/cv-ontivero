@@ -37,11 +37,11 @@
             flex-wrap: wrap;
         }
         .photo-frame {
-            width: 125px;
-            height: 125px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            background: #ffffff;
-            border: 4px solid #ffffff;
+            background: transparent;
+            border: 3px solid #ffffff;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             display: flex;
             align-items: center;
@@ -53,6 +53,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transform: scale(1.2);
         }
         .header-info {
             color: #ffffff;
@@ -261,122 +262,230 @@
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
+            /* OCULTAR LA PANTALLA DE BIENVENIDA Y EL BOTÓN AL IMPRIMIR */
+            .welcome-screen, .download-btn {
+                display: none !important;
+            }
+            .photo-frame {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        /* PANTALLA DE BIENVENIDA AUTOMÁTICA */
+        .welcome-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #0b1a3a;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 9999;
+            color: white;
+            padding: 20px;
+            opacity: 1;
+            transition: opacity 1s ease;
+        }
+        .welcome-screen h1 {
+            font-size: 34px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .welcome-screen h2 {
+            font-size: 20px;
+            font-weight: 300;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        .welcome-screen p {
+            font-size: 16px;
+            color: #aeb9d4;
+        }
+        .fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* BOTÓN FLOTANTE PARA DESCARGAR PDF */
+        .download-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0b1a3a;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            z-index: 9998;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .download-btn:hover {
+            background: #243d6b;
+            transform: scale(1.05);
+        }
+        .download-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
         }
     </style>
 </head>
 <body>
-<div class="cv-container">
 
-    <!-- BANDA AZUL CON FOTO Y DATOS -->
-    <div class="blue-header">
-        <div class="photo-frame">
-            <img src="foto.png" alt="Foto">
-        </div>
-        <div class="header-info">
-            <div class="name">CÉSAR AUGUSTO ONTIVERO PÉREZ</div>
-            <div class="subtitle">Coronel · Magister Scientiarum en Seguridad de la Nación</div>
-            <div class="header-contact">
-                <span>✉ ontivero72@gmail.com</span>
-                <span>📞 +58 426 618.16.21</span>
-                <span>📍 Urb. Simón Bolívar, Ciudad Tiuna. El Valle, Caracas D.C. 1010</span>
-            </div>
-        </div>
+    <!-- PANTALLA DE BIENVENIDA AUTOMÁTICA -->
+    <div id="welcome" class="welcome-screen">
+        <h1>Curriculum Vitae</h1>
+        <h2>Msc. César Augusto Ontivero Pérez</h2>
+        <p>Coronel · Magister Scientiarum en Seguridad de la Nación</p>
     </div>
 
-    <!-- CUERPO DOS COLUMNAS -->
-    <div class="body-content">
+    <!-- BOTÓN FLOTANTE PARA IMPRIMIR / PDF -->
+    <button class="download-btn" onclick="window.print()">
+        <svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+        Descargar PDF
+    </button>
 
-        <!-- COLUMNA IZQUIERDA -->
-        <div class="col-left">
+    <!-- CUERPO DEL CURRICULUM -->
+    <div class="cv-container">
 
-            <!-- PERFIL PROFESIONAL -->
-            <div class="section-title">Perfil Profesional</div>
-            <div class="profile-text">
-                Coronel en Reserva Activa y Magister en Seguridad de la Nación. Especialista en Alta Gerencia, Gestión del Talento Humano y Continuidad de Operaciones en organizaciones de gran escala. Experiencia demostrada en la optimización de procesos logísticos, mitigación de riesgos estratégicos y diseño de sistemas tecnológicos automatizados para la toma de decisiones.
+        <!-- BANDA AZUL CON FOTO Y DATOS -->
+        <div class="blue-header">
+            <div class="photo-frame">
+                <img src="foto.png" alt="Foto de César Augusto Ontivero Pérez">
             </div>
-
-            <!-- ÚLTIMO CARGO (destacado) -->
-            <div class="section-title">Último cargo</div>
-            <div class="last-role">
-                <div class="role-title">Jefe de la Reserva y Movilización del Ejército Bolivariano <span class="role-date">— Caracas D.C. — Dic 2024 – Ago 2026</span></div>
-                <ul>
-                    <li>Dirección estratégica de los planes de contingencia y movilización de RR.HH. a nivel nacional.</li>
-                    <li>Coordinación logística de personal y diseño de planes de planificación estratégica para la continuidad de las operaciones institucionales.</li>
-                    <li>Liderazgo en el diseño e implementación del Sistema Automatizado de Control de la Reserva, optimizando el registro de personal mediante herramientas tecnológicas y control de versiones (VS Code y GitHub).</li>
-                </ul>
-            </div>
-
-            <!-- EXPERIENCIA LABORAL -->
-            <div class="section-title">Experiencia Laboral</div>
-
-            <div class="exp-item">
-                <div class="exp-header">
-                    <span>Sub-Director de Educación del Ejército Bolivariano</span>
-                    <span class="date">Caracas D.C. — Dic 2022 – Dic 2024</span>
+            <div class="header-info">
+                <div class="name">CÉSAR AUGUSTO ONTIVERO PÉREZ</div>
+                <div class="subtitle">Coronel · Magister Scientiarum en Seguridad de la Nación</div>
+                <div class="header-contact">
+                    <span>✉ ontivero72@gmail.com</span>
+                    <span>📞 +58 426 618.16.21</span>
+                    <span>📍 Urb. Simón Bolívar, Ciudad Tiuna. El Valle, Caracas D.C. 1010</span>
                 </div>
-                <ul>
-                    <li>Supervisión de planes nacionales de adiestramiento, formación profesional y gestión del conocimiento.</li>
-                    <li>Coordinación de la estructura educativa, el desarrollo organizacional y los objetivos estratégicos.</li>
-                </ul>
             </div>
+        </div>
 
-            <div class="exp-item">
-                <div class="exp-header">
-                    <span>Jefe de Talento Humano Educativo del Ejército Bolivariano</span>
-                    <span class="date">Caracas D.C. — Dic 2020 – Dic 2022</span>
+        <!-- CUERPO DOS COLUMNAS -->
+        <div class="body-content">
+
+            <!-- COLUMNA IZQUIERDA -->
+            <div class="col-left">
+
+                <!-- PERFIL PROFESIONAL -->
+                <div class="section-title">Perfil Profesional</div>
+                <div class="profile-text">
+                    Coronel en Reserva Activa y Magister en Seguridad de la Nación. Especialista en Alta Gerencia, Gestión del Talento Humano y Continuidad de Operaciones en organizaciones de gran escala. Experiencia demostrada en la optimización de procesos logísticos, mitigación de riesgos estratégicos y diseño de sistemas tecnológicos automatizados para la toma de decisiones.
                 </div>
-                <ul>
-                    <li>Liderazgo integral de los procesos de captación, evaluación del desempeño, administración de personal y relaciones laborales.</li>
-                    <li>Implementación de metodologías de trabajo orientadas a la mejora del clima organizacional y la reducción de la rotación de personal.</li>
-                </ul>
-            </div>
 
-            <div class="exp-item">
-                <div class="exp-header">
-                    <span>Jefe de Gestión Social / Autoridad Única de Ciudad Tiuna</span>
-                    <span class="date">Caracas D.C. — Dic 2018 – Dic 2020</span>
+                <!-- ÚLTIMO CARGO (destacado) -->
+                <div class="section-title">Último cargo</div>
+                <div class="last-role">
+                    <div class="role-title">Jefe de la Reserva y Movilización del Ejército Bolivariano <span class="role-date">— Caracas D.C. — Dic 2024 – Ago 2026</span></div>
+                    <ul>
+                        <li>Dirección estratégica de los planes de contingencia y movilización de RR.HH. a nivel nacional.</li>
+                        <li>Coordinación logística de personal y diseño de planes de planificación estratégica para la continuidad de las operaciones institucionales.</li>
+                        <li>Liderazgo en el diseño e implementación del Sistema Automatizado de Control de la Reserva, optimizando el registro de personal mediante herramientas tecnológicas y control de versiones (VS Code y GitHub).</li>
+                    </ul>
                 </div>
-                <ul>
-                    <li>Supervisión de planes de desarrollo social integral, organización colectiva y liderazgo comunal.</li>
-                </ul>
-            </div>
 
-        </div><!-- /col-left -->
+                <!-- EXPERIENCIA LABORAL -->
+                <div class="section-title">Experiencia Laboral</div>
 
-        <!-- COLUMNA DERECHA -->
-        <div class="col-right">
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span>Sub-Director de Educación del Ejército Bolivariano</span>
+                        <span class="date">Caracas D.C. — Dic 2022 – Dic 2024</span>
+                    </div>
+                    <ul>
+                        <li>Supervisión de planes nacionales de adiestramiento, formación profesional y gestión del conocimiento.</li>
+                        <li>Coordinación de la estructura educativa, el desarrollo organizacional y los objetivos estratégicos.</li>
+                    </ul>
+                </div>
 
-            <!-- FORMACIÓN -->
-            <div class="section-title">Formación</div>
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span>Jefe de Talento Humano Educativo del Ejército Bolivariano</span>
+                        <span class="date">Caracas D.C. — Dic 2020 – Dic 2022</span>
+                    </div>
+                    <ul>
+                        <li>Liderazgo integral de los procesos de captación, evaluación del desempeño, administración de personal y relaciones laborales.</li>
+                        <li>Implementación de metodologías de trabajo orientadas a la mejora del clima organizacional y la reducción de la rotación de personal.</li>
+                    </ul>
+                </div>
 
-            <div class="formation-item">
-                <strong>Magister en Seguridad de la Nación</strong>, Caracas D.C. — año 2024<br />
-                <strong>Doctorando en Seguridad de la Nación</strong>, Caracas D.C. — presente.
-                <span class="institute">Instituto de Altos Estudios de Seguridad de la Nación</span>
-            </div>
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span>Jefe de Gestión Social / Autoridad Única de Ciudad Tiuna</span>
+                        <span class="date">Caracas D.C. — Dic 2018 – Dic 2020</span>
+                    </div>
+                    <ul>
+                        <li>Supervisión de planes de desarrollo social integral, organización colectiva y liderazgo comunal.</li>
+                    </ul>
+                </div>
 
-            <div class="formation-item" style="margin-top:10px;">
-                <strong>Oficial de Comando del Ejército Bolivariano en situación de Reserva Activa</strong>
-                <span class="institute">Academia Militar de Venezuela, Caracas D.C. — Ago90 – Jul95</span>
-            </div>
+            </div><!-- /col-left -->
 
-            <!-- HABILIDADES TÉCNICAS -->
-            <div class="section-title">Habilidades técnicas</div>
-            <div class="skills-list">
-                <span><strong>Ofimática y Gestión de Datos:</strong> Excel, Google Sheets, Word, PowerPoint.</span>
-                <span><strong>Desarrollo y Control de Versiones:</strong> VS Code, GitHub, Git.</span>
-            </div>
+            <!-- COLUMNA DERECHA -->
+            <div class="col-right">
 
-            <!-- LOGROS ALCANZADOS -->
-            <div class="section-title">Logros alcanzados</div>
-            <div class="achievement-text">
-                Diseño e implementación del Sistema Automatizado de Control de la Reserva del Ejército Bolivariano, así como el Sistema de Atención a distancia del reservista.
-            </div>
+                <!-- FORMACIÓN -->
+                <div class="section-title">Formación</div>
 
-        </div><!-- /col-right -->
+                <div class="formation-item">
+                    <strong>Magister en Seguridad de la Nación</strong>, Caracas D.C. — año 2024<br />
+                    <strong>Doctorando en Seguridad de la Nación</strong>, Caracas D.C. — presente.
+                    <span class="institute">Instituto de Altos Estudios de Seguridad de la Nación</span>
+                </div>
 
-    </div><!-- /body-content -->
+                <div class="formation-item" style="margin-top:10px;">
+                    <strong>Oficial de Comando del Ejército Bolivariano en situación de Reserva Activa</strong>
+                    <span class="institute">Academia Militar de Venezuela, Caracas D.C. — Ago90 – Jul95</span>
+                </div>
 
-</div><!-- /cv-container -->
+                <!-- HABILIDADES TÉCNICAS -->
+                <div class="section-title">Habilidades técnicas</div>
+                <div class="skills-list">
+                    <span><strong>Ofimática y Gestión de Datos:</strong> Excel, Google Sheets, Word, PowerPoint.</span>
+                    <span><strong>Desarrollo y Control de Versiones:</strong> VS Code, GitHub, Git.</span>
+                </div>
+
+                <!-- LOGROS ALCANZADOS -->
+                <div class="section-title">Logros alcanzados</div>
+                <div class="achievement-text">
+                    Diseño e implementación del Sistema Automatizado de Control de la Reserva del Ejército Bolivariano, así como el Sistema de Atención a distancia del reservista.
+                </div>
+
+            </div><!-- /col-right -->
+
+        </div><!-- /body-content -->
+
+    </div><!-- /cv-container -->
+
+    <!-- SCRIPT PARA DESVANECER LA PANTALLA DE BIENVENIDA -->
+    <script>
+        // Espera 2.5 segundos (2500 milisegundos) y luego ejecuta la función
+        setTimeout(function() {
+            var welcomeScreen = document.getElementById("welcome");
+            welcomeScreen.classList.add("fade-out"); // Activa el desvanecimiento
+            
+            // Después de 1 segundo (cuando termina el fade), lo elimina del DOM
+            setTimeout(function() {
+                welcomeScreen.style.display = "none";
+            }, 1000);
+        }, 2500);
+    </script>
+
 </body>
 </html>
