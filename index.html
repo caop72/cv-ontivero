@@ -3,7 +3,16 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Propaganda Profesional - Msc. César Augusto Ontivero Pérez</title>
+    
+    <!-- ETIQUETAS PARA COMPARTIR EN REDES SOCIALES -->
+    <title>CV - César Augusto Ontivero Pérez</title>
+    <meta name="description" content="Currículum Vitae de Msc. César Augusto Ontivero Pérez. Coronel, Magister Scientiarum en Seguridad de la Nación." />
+    <meta property="og:title" content="CV - César Augusto Ontivero Pérez" />
+    <meta property="og:description" content="Coronel · Magister Scientiarum en Seguridad de la Nación. Especialista en Alta Gerencia y Continuidad de Operaciones." />
+    <meta property="og:image" content="https://caop72.github.io/cv-ontivero/foto.png" />
+    <meta property="og:url" content="https://caop72.github.io/cv-ontivero/" />
+    <meta name="twitter:card" content="summary_large_image" />
+
     <style>
         * {
             margin: 0;
@@ -12,499 +21,577 @@
         }
         body {
             font-family: 'Segoe UI', 'Calibri', Roboto, Arial, sans-serif;
-            background: #0b1a3a;
+            background: #dce1e8;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
-            overflow: hidden;
+            padding: 30px 20px;
         }
-
-        /* ====== CARRUSEL HORIZONTAL ====== */
-        .carousel {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
+        .cv-container {
+            max-width: 1050px;
             width: 100%;
-            max-width: 1100px;
-            height: 85vh;
-            border-radius: 24px;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+        /* BANDA AZUL SUPERIOR */
+        .blue-header {
             background: #0b1a3a;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .carousel::-webkit-scrollbar {
-            display: none;
-        }
-
-        .slide {
-            flex: 0 0 100%;
-            scroll-snap-align: start;
+            padding: 18px 35px 14px 35px;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            padding: 50px 40px;
-            color: white;
-            position: relative;
-            text-align: center;
-            background: linear-gradient(145deg, #0b1a3a 0%, #142a52 100%);
-            overflow: hidden;
-            transition: background 0.3s;
+            gap: 24px;
+            flex-wrap: wrap;
         }
-        .slide::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.04), transparent 60%);
-            pointer-events: none;
-        }
-
-        /* ====== SLIDE 1: PORTADA ====== */
-        .slide-1 .photo-big {
-            width: 160px;
-            height: 160px;
+        .photo-frame {
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            border: 4px solid rgba(255, 255, 255, 0.85);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+            background: transparent;
+            border: 3px solid #ffffff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
-            margin-bottom: 28px;
-            background: #fff;
-            transition: transform 0.4s;
+            flex-shrink: 0;
         }
-        .slide-1 .photo-big:hover {
-            transform: scale(1.03);
-        }
-        .slide-1 .photo-big img {
+        .photo-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        .slide-1 h1 {
-            font-size: 44px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            margin-bottom: 6px;
-            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-            line-height: 1.1;
-        }
-        .slide-1 .sub {
-            font-size: 22px;
-            font-weight: 300;
-            color: #b8c7e6;
-            margin-bottom: 18px;
-            letter-spacing: 0.5px;
-        }
-        .slide-1 .tagline {
-            font-size: 17px;
-            color: #8fa3c9;
-            max-width: 600px;
-            line-height: 1.6;
-            border-top: 1px solid rgba(255, 255, 255, 0.12);
-            padding-top: 18px;
-            margin-top: 6px;
-        }
-
-        /* ====== SLIDE 2: PROPUESTA DE VALOR ====== */
-        .slide-2 .badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            padding: 6px 20px;
-            border-radius: 40px;
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 24px;
-            color: #d0ddf7;
-        }
-        .slide-2 h2 {
-            font-size: 38px;
-            font-weight: 800;
-            margin-bottom: 18px;
-            line-height: 1.2;
-        }
-        .slide-2 h2 span {
-            color: #6f9dff;
-            text-shadow: 0 0 30px rgba(111, 157, 255, 0.3);
-        }
-        .slide-2 .features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 18px 30px;
-            margin-top: 15px;
-            max-width: 800px;
-        }
-        .slide-2 .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 16px;
-            color: #ccd9f0;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 10px 22px;
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.07);
-            transition: background 0.3s;
-        }
-        .slide-2 .feature-item:hover {
-            background: rgba(255, 255, 255, 0.10);
-        }
-        .slide-2 .feature-item .icon {
-            font-size: 20px;
-        }
-
-        /* ====== SLIDE 3: PRECIO ====== */
-        .slide-3 .price-label {
-            font-size: 16px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #8fa3c9;
-            margin-bottom: 10px;
-            font-weight: 400;
-        }
-        .slide-3 .price-main {
-            font-size: 96px;
-            font-weight: 900;
+        .header-info {
             color: #ffffff;
-            line-height: 1;
-            text-shadow: 0 0 50px rgba(111, 157, 255, 0.4);
-            position: relative;
-            display: inline-block;
+            flex: 1;
         }
-        .slide-3 .price-main .currency {
-            font-size: 40px;
-            font-weight: 600;
-            vertical-align: super;
-            color: #b8c7e6;
-            margin-right: 4px;
-        }
-        .slide-3 .price-main .cents {
-            font-size: 36px;
-            font-weight: 600;
-            vertical-align: baseline;
-            color: #b8c7e6;
-        }
-        .slide-3 .price-note {
-            font-size: 18px;
-            color: #a0b4d9;
-            margin-top: 16px;
-            font-weight: 300;
-            max-width: 600px;
-            line-height: 1.6;
-        }
-        .slide-3 .price-badge {
-            margin-top: 24px;
-            display: inline-block;
-            background: linear-gradient(135deg, #2a4a8a, #1a3366);
-            padding: 12px 36px;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        /* ====== SLIDE 4: LOGROS + CTA ====== */
-        .slide-4 .logros-title {
+        .header-info .name {
             font-size: 28px;
             font-weight: 700;
-            margin-bottom: 25px;
-            color: #fff;
-        }
-        .slide-4 .logros-list {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            max-width: 700px;
-            width: 100%;
-            margin-bottom: 30px;
-        }
-        .slide-4 .logro-item {
-            background: rgba(255, 255, 255, 0.06);
-            border-left: 4px solid #6f9dff;
-            padding: 14px 24px;
-            border-radius: 8px;
-            text-align: left;
-            font-size: 16px;
-            color: #d6e2f7;
-            line-height: 1.5;
-            transition: background 0.3s;
-        }
-        .slide-4 .logro-item:hover {
-            background: rgba(255, 255, 255, 0.10);
-        }
-        .slide-4 .cta-button {
-            display: inline-block;
-            background: #ffffff;
-            color: #0b1a3a;
-            font-weight: 800;
-            font-size: 18px;
-            padding: 16px 48px;
-            border-radius: 60px;
-            text-decoration: none;
             letter-spacing: 0.5px;
-            box-shadow: 0 10px 35px rgba(255, 255, 255, 0.15);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: none;
-            cursor: pointer;
+            line-height: 1.2;
         }
-        .slide-4 .cta-button:hover {
-            transform: scale(1.04);
-            box-shadow: 0 15px 45px rgba(255, 255, 255, 0.25);
+        .header-info .subtitle {
+            font-size: 16px;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-top: 2px;
         }
-        .slide-4 .contact-info {
-            margin-top: 22px;
-            font-size: 15px;
-            color: #8fa3c9;
+        .header-contact {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px 28px;
+            gap: 4px 18px;
+            margin-top: 6px;
+            font-size: 13.5px;
+            opacity: 0.95;
         }
-        .slide-4 .contact-info span {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 4px 16px;
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
+        .header-contact span {
+            background: rgba(255,255,255,0.10);
+            padding: 2px 12px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.08);
         }
-
-        /* ====== INDICADORES ====== */
-        .indicators {
-            position: fixed;
-            bottom: 28px;
-            left: 50%;
-            transform: translateX(-50%);
+        /* CUERPO EN DOS COLUMNAS */
+        .body-content {
             display: flex;
-            gap: 12px;
-            z-index: 100;
-            background: rgba(11, 26, 58, 0.7);
-            backdrop-filter: blur(10px);
-            padding: 10px 22px;
-            border-radius: 60px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            flex-wrap: wrap;
+            padding: 24px 35px 35px 35px;
+            gap: 30px;
         }
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.25);
-            cursor: pointer;
-            transition: all 0.3s;
-            border: none;
+        .col-left {
+            flex: 1 1 58%;
+            min-width: 280px;
         }
-        .dot.active {
-            background: #ffffff;
-            width: 30px;
-            border-radius: 10px;
+        .col-right {
+            flex: 1 1 35%;
+            min-width: 220px;
+        }
+        .section-title {
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #0b1a3a;
+            border-bottom: 3px solid #0b1a3a;
+            padding-bottom: 4px;
+            margin: 18px 0 10px 0;
+        }
+        .section-title:first-of-type {
+            margin-top: 0;
+        }
+        .profile-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #1f2a3f;
+            text-align: justify;
+        }
+        .formation-item {
+            margin-bottom: 6px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .formation-item strong {
+            font-weight: 700;
+            color: #0b1a2e;
+        }
+        .formation-item .institute {
+            display: block;
+            font-size: 13.5px;
+            color: #2c3e5a;
+            margin-left: 14px;
+            margin-top: 1px;
+        }
+        .formation-item .institute::before {
+            content: "• ";
+            color: #0b1a3a;
+            font-weight: 700;
+        }
+        .last-role {
+            background: #f0f3fa;
+            border-left: 5px solid #0b1a3a;
+            padding: 10px 16px;
+            border-radius: 4px;
+            margin: 6px 0 12px 0;
+        }
+        .last-role .role-title {
+            font-weight: 700;
+            font-size: 15px;
+            color: #0b1a2e;
+        }
+        .last-role .role-date {
+            font-weight: 400;
+            color: #3e5270;
+            font-size: 13px;
+        }
+        .last-role ul,
+        .exp-item ul {
+            list-style: none;
+            margin-top: 4px;
+            padding-left: 4px;
+        }
+        .last-role ul li,
+        .exp-item ul li {
+            font-size: 13.5px;
+            line-height: 1.5;
+            padding: 2px 0 2px 18px;
+            position: relative;
+            color: #1f2a3f;
+        }
+        .last-role ul li::before,
+        .exp-item ul li::before {
+            content: "▹";
+            position: absolute;
+            left: 2px;
+            color: #0b1a3a;
+            font-weight: 700;
+        }
+        .exp-item {
+            margin-bottom: 14px;
+        }
+        .exp-item .exp-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            font-weight: 700;
+            font-size: 15px;
+            color: #0b1a2e;
+        }
+        .exp-item .exp-header .date {
+            font-weight: 400;
+            font-size: 13px;
+            color: #3e5270;
+        }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 12px;
+            padding-left: 2px;
+            margin-top: 4px;
+        }
+        .skills-list span {
+            font-size: 13.5px;
+            color: #1f2a3f;
+            background: #eef1f8;
+            padding: 3px 12px;
+            border-radius: 20px;
+        }
+        .skills-list span strong {
+            font-weight: 600;
+            color: #0b1a2e;
+        }
+        .achievement-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #1f2a3f;
+            padding-left: 2px;
+            margin-top: 4px;
+        }
+        @media (max-width: 750px) {
+            .blue-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 18px 20px;
+            }
+            .photo-frame {
+                width: 90px;
+                height: 90px;
+            }
+            .header-contact {
+                justify-content: center;
+            }
+            .body-content {
+                padding: 18px 18px 25px 18px;
+                flex-direction: column;
+            }
+            .col-left,
+            .col-right {
+                flex: 1 1 100%;
+            }
+            .exp-item .exp-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+        
+        /* =========================================
+           CONFIGURACIÓN PARA IMPRESIÓN (1 PÁGINA + FOTO A LA IZQUIERDA)
+           ========================================= */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+                display: block;
+            }
+            .cv-container {
+                max-width: 100%;
+                width: 100%;
+                border-radius: 0;
+                box-shadow: none;
+            }
+            
+            /* CABECERA: FOTO A LA IZQUIERDA Y MÁS PEQUEÑA */
+            .blue-header {
+                padding: 10px 20px;
+                display: flex;
+                align-items: center;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .photo-frame {
+                width: 65px;
+                height: 65px;
+                border: 2px solid #ffffff;
+                margin-right: 15px;
+                flex-shrink: 0;
+            }
+            .header-info .name {
+                font-size: 20px;
+                margin-bottom: 2px;
+            }
+            .header-info .subtitle {
+                font-size: 12px;
+                margin-bottom: 2px;
+            }
+            .header-contact {
+                font-size: 11px;
+                gap: 3px 10px;
+            }
+            .header-contact span {
+                padding: 1px 8px;
+            }
+            
+            /* CUERPO CON LETRAS NÍTIDAS Y ESPACIOS EQUILIBRADOS */
+            .body-content {
+                padding: 10px 20px;
+                gap: 15px;
+            }
+            .section-title {
+                font-size: 12px;
+                margin: 8px 0 4px 0;
+                padding-bottom: 2px;
+            }
+            .profile-text, .exp-item ul li, .last-role ul li, .exp-item .exp-header, .last-role .role-title {
+                font-size: 11px;
+                line-height: 1.4;
+            }
+            .exp-item, .last-role {
+                margin-bottom: 6px;
+            }
+            .last-role {
+                padding: 6px 10px;
+            }
+            .skills-list span {
+                font-size: 11px;
+                padding: 1px 6px;
+            }
+            .achievement-text {
+                font-size: 11px;
+                line-height: 1.4;
+            }
+            .formation-item {
+                font-size: 11px;
+                line-height: 1.4;
+            }
+            .welcome-screen, .download-btn {
+                display: none !important;
+            }
+            
+            /* Protege los bloques de partirse por la mitad */
+            .exp-item, .last-role, .formation-item, .col-right, .col-left, .achievement-text {
+                page-break-inside: avoid;
+            }
         }
 
-        /* ====== RESPONSIVE ====== */
-        @media (max-width: 700px) {
-            .slide {
-                padding: 30px 22px;
-            }
-            .slide-1 h1 {
-                font-size: 30px;
-            }
-            .slide-1 .sub {
-                font-size: 17px;
-            }
-            .slide-1 .photo-big {
-                width: 120px;
-                height: 120px;
-            }
-            .slide-2 h2 {
-                font-size: 26px;
-            }
-            .slide-2 .feature-item {
-                font-size: 14px;
-                padding: 8px 16px;
-            }
-            .slide-3 .price-main {
-                font-size: 64px;
-            }
-            .slide-3 .price-main .currency {
-                font-size: 28px;
-            }
-            .slide-3 .price-main .cents {
-                font-size: 24px;
-            }
-            .slide-4 .logro-item {
-                font-size: 14px;
-                padding: 10px 16px;
-            }
-            .slide-4 .cta-button {
-                font-size: 16px;
-                padding: 14px 32px;
-            }
-            .slide-4 .contact-info {
-                font-size: 13px;
-                gap: 8px 12px;
-            }
-            .carousel {
-                height: 90vh;
-                border-radius: 16px;
-            }
-            .indicators {
-                bottom: 18px;
-                padding: 8px 16px;
-            }
+        /* =========================================
+           PORTADA DE BIENVENIDA CINEMATOGRÁFICA
+           ========================================= */
+        .welcome-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #0b1a3a;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 9999;
+            color: white;
+            padding: 20px;
+            opacity: 1;
+            transition: opacity 1s ease;
+            animation: welcomeZoom 5s ease forwards;
         }
-        @media (max-width: 420px) {
-            .slide-1 h1 {
-                font-size: 24px;
-            }
-            .slide-3 .price-main {
-                font-size: 48px;
-            }
-            .slide-4 .logros-title {
-                font-size: 22px;
-            }
+        @keyframes welcomeZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.08); }
+        }
+        .welcome-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            overflow: hidden;
+            margin-bottom: 25px;
+            background: white;
+        }
+        .welcome-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .welcome-screen h1 {
+            font-size: 42px;
+            margin-bottom: 8px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        }
+        .welcome-screen h2 {
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 15px;
+            opacity: 0.95;
+            letter-spacing: 0.5px;
+        }
+        .welcome-screen p {
+            font-size: 18px;
+            color: #aeb9d4;
+            font-weight: 400;
+        }
+        .progress-bar-container {
+            position: absolute;
+            bottom: 40px;
+            width: 60%;
+            max-width: 400px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #ffffff, #aeb9d4);
+            border-radius: 10px;
+            animation: fillBar 5s linear forwards;
+        }
+        @keyframes fillBar {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+        .fade-out {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1s ease;
+        }
+
+        /* BOTÓN FLOTANTE PARA DESCARGAR PDF */
+        .download-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0b1a3a;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            z-index: 9998;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .download-btn:hover {
+            background: #243d6b;
+            transform: scale(1.05);
+        }
+        .download-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
         }
     </style>
 </head>
 <body>
 
-    <!-- ====== CARRUSEL ====== -->
-    <div class="carousel" id="carousel">
-
-        <!-- SLIDE 1: PORTADA -->
-        <div class="slide slide-1">
-            <div class="photo-big">
-                <img src="foto.png" alt="Msc. César Augusto Ontivero Pérez" />
-            </div>
-            <h1>CÉSAR AUGUSTO<br>ONTIVERO PÉREZ</h1>
-            <div class="sub">Coronel · Magister Scientiarum en Seguridad de la Nación</div>
-            <div class="tagline">
-                Especialista en Alta Gerencia, Gestión del Talento Humano y<br>
-                Continuidad de Operaciones en organizaciones de gran escala.
-            </div>
+    <!-- PORTADA DE BIENVENIDA -->
+    <div id="welcome" class="welcome-screen">
+        <div class="welcome-photo">
+            <img src="foto.png" alt="Foto de César Augusto Ontivero Pérez">
         </div>
-
-        <!-- SLIDE 2: PROPUESTA DE VALOR -->
-        <div class="slide slide-2">
-            <div class="badge">Propuesta Profesional</div>
-            <h2>Soluciones estratégicas para<br><span>organizaciones de alto impacto</span></h2>
-            <div class="features">
-                <div class="feature-item"><span class="icon">🛡️</span> Seguridad de la Nación</div>
-                <div class="feature-item"><span class="icon">📊</span> Alta Gerencia</div>
-                <div class="feature-item"><span class="icon">⚙️</span> Continuidad de Operaciones</div>
-                <div class="feature-item"><span class="icon">👥</span> Gestión del Talento Humano</div>
-                <div class="feature-item"><span class="icon">💻</span> Sistemas Automatizados</div>
-                <div class="feature-item"><span class="icon">📈</span> Optimización de Procesos</div>
-            </div>
+        <h1>Curriculum Vitae</h1>
+        <h2>Msc. César Augusto Ontivero Pérez</h2>
+        <p>Coronel · Magister Scientiarum en Seguridad de la Nación</p>
+        
+        <!-- Barra de progreso -->
+        <div class="progress-bar-container">
+            <div class="progress-bar"></div>
         </div>
-
-        <!-- SLIDE 3: PRECIO -->
-        <div class="slide slide-3">
-            <div class="price-label">Inversión Profesional</div>
-            <div class="price-main">
-                <span class="currency">$</span>2.000<span class="cents">.00</span>
-            </div>
-            <div class="price-note">
-                Asesoría integral, diseño de sistemas automatizados y<br>
-                planificación estratégica para la continuidad de sus operaciones.
-            </div>
-            <div class="price-badge">✦ Valor único · Resultados comprobados ✦</div>
-        </div>
-
-        <!-- SLIDE 4: LOGROS + CONTACTO -->
-        <div class="slide slide-4">
-            <div class="logros-title">Logros Destacados</div>
-            <div class="logros-list">
-                <div class="logro-item">✅ Diseño e implementación del Sistema Automatizado de Control de la Reserva del Ejército Bolivariano.</div>
-                <div class="logro-item">✅ Desarrollo del Sistema de Atención a Distancia del Reservista.</div>
-                <div class="logro-item">✅ Dirección estratégica de planes de contingencia y movilización de RR.HH. a nivel nacional.</div>
-            </div>
-            <a href="mailto:ontivero72@gmail.com" class="cta-button">📩 Solicitar Asesoría</a>
-            <div class="contact-info">
-                <span>✉ ontivero72@gmail.com</span>
-                <span>📞 +58 426 618.16.21</span>
-                <span>📍 Caracas D.C., Venezuela</span>
-            </div>
-        </div>
-
     </div>
 
-    <!-- ====== INDICADORES ====== -->
-    <div class="indicators" id="indicators">
-        <button class="dot active" data-index="0"></button>
-        <button class="dot" data-index="1"></button>
-        <button class="dot" data-index="2"></button>
-        <button class="dot" data-index="3"></button>
+    <!-- BOTÓN FLOTANTE PARA IMPRIMIR / PDF -->
+    <button class="download-btn" onclick="window.print()">
+        <svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+        Descargar PDF
+    </button>
+
+    <!-- CUERPO DEL CURRICULUM -->
+    <div class="cv-container">
+        <div class="blue-header">
+            <div class="photo-frame">
+                <img src="foto.png" alt="Foto de César Augusto Ontivero Pérez">
+            </div>
+            <div class="header-info">
+                <div class="name">CÉSAR AUGUSTO ONTIVERO PÉREZ</div>
+                <div class="subtitle">Coronel · Magister Scientiarum en Seguridad de la Nación</div>
+                <div class="header-contact">
+                    <span>✉ ontivero72@gmail.com</span>
+                    <span>📞 +58 426 618.16.21</span>
+                    <span>📍 Urb. Simón Bolívar, Ciudad Tiuna. El Valle, Caracas D.C. 1010</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="body-content">
+            <div class="col-left">
+                <div class="section-title">Perfil Profesional</div>
+                <div class="profile-text">
+                    Coronel en Reserva Activa y Magister en Seguridad de la Nación. Especialista en Alta Gerencia, Gestión del Talento Humano y Continuidad de Operaciones en organizaciones de gran escala. Experiencia demostrada en la optimización de procesos logísticos, mitigación de riesgos estratégicos y diseño de sistemas tecnológicos automatizados para la toma de decisiones.
+                </div>
+
+                <div class="section-title">Último cargo</div>
+                <div class="last-role">
+                    <div class="role-title">Jefe de la Reserva y Movilización del Ejército Bolivariano <span class="role-date">— Caracas D.C. — Dic 2024 – Ago 2026</span></div>
+                    <ul>
+                        <li>Dirección estratégica de los planes de contingencia y movilización de RR.HH. a nivel nacional.</li>
+                        <li>Coordinación logística de personal y diseño de planes de planificación estratégica para la continuidad de las operaciones institucionales.</li>
+                        <li>Liderazgo en el diseño e implementación del Sistema Automatizado de Control de la Reserva, optimizando el registro de personal mediante herramientas tecnológicas y control de versiones (VS Code y GitHub).</li>
+                    </ul>
+                </div>
+
+                <div class="section-title">Experiencia Laboral</div>
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span>Sub-Director de Educación del Ejército Bolivariano</span>
+                        <span class="date">Caracas D.C. — Dic 2022 – Dic 2024</span>
+                    </div>
+                    <ul>
+                        <li>Supervisión de planes nacionales de adiestramiento, formación profesional y gestión del conocimiento.</li>
+                        <li>Coordinación de la estructura educativa, el desarrollo organizacional y los objetivos estratégicos.</li>
+                    </ul>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span>Jefe de Talento Humano Educativo del Ejército Bolivariano</span>
+                        <span class="date">Caracas D.C. — Dic 2020 – Dic 2022</span>
+                    </div>
+                    <ul>
+                        <li>Liderazgo integral de los procesos de captación, evaluación del desempeño, administración de personal y relaciones laborales.</li>
+                        <li>Implementación de metodologías de trabajo orientadas a la mejora del clima organizacional y la reducción de la rotación de personal.</li>
+                    </ul>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span>Jefe de Gestión Social / Autoridad Única de Ciudad Tiuna</span>
+                        <span class="date">Caracas D.C. — Dic 2018 – Dic 2020</span>
+                    </div>
+                    <ul>
+                        <li>Supervisión de planes de desarrollo social integral, organización colectiva y liderazgo comunal.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-right">
+                <div class="section-title">Formación</div>
+                <div class="formation-item">
+                    <strong>Magister en Seguridad de la Nación</strong>, Caracas D.C. — año 2024<br />
+                    <strong>Doctorando en Seguridad de la Nación</strong>, Caracas D.C. — presente.
+                    <span class="institute">Instituto de Altos Estudios de Seguridad de la Nación</span>
+                </div>
+                <div class="formation-item" style="margin-top:10px;">
+                    <strong>Oficial de Comando del Ejército Bolivariano en situación de Reserva Activa</strong>
+                    <span class="institute">Academia Militar de Venezuela, Caracas D.C. — Ago90 – Jul95</span>
+                </div>
+
+                <div class="section-title">Habilidades técnicas</div>
+                <div class="skills-list">
+                    <span><strong>Ofimática y Gestión de Datos:</strong> Excel, Google Sheets, Word, PowerPoint.</span>
+                    <span><strong>Desarrollo y Control de Versiones:</strong> VS Code, GitHub, Git.</span>
+                </div>
+
+                <div class="section-title">Logros alcanzados</div>
+                <div class="achievement-text">
+                    Diseño e implementación del Sistema Automatizado de Control de la Reserva del Ejército Bolivariano, así como el Sistema de Atención a distancia del reservista.
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- ====== SCRIPT (solo para deslizar, invisible al cliente) ====== -->
+    <!-- SCRIPT DE TEMPORIZADOR -->
     <script>
-        (function() {
-            const carousel = document.getElementById('carousel');
-            const dots = document.querySelectorAll('.dot');
-            const slides = carousel.querySelectorAll('.slide');
-
-            // Actualizar indicador al deslizar
-            carousel.addEventListener('scroll', function() {
-                const scrollLeft = carousel.scrollLeft;
-                const width = carousel.clientWidth;
-                const index = Math.round(scrollLeft / width);
-                dots.forEach((dot, i) => {
-                    dot.classList.toggle('active', i === index);
-                });
-            });
-
-            // Navegar al hacer clic en los puntos
-            dots.forEach(dot => {
-                dot.addEventListener('click', function() {
-                    const index = parseInt(this.dataset.index);
-                    const width = carousel.clientWidth;
-                    carousel.scrollTo({
-                        left: index * width,
-                        behavior: 'smooth'
-                    });
-                });
-            });
-
-            // Auto-avance cada 7 segundos (opcional, se detiene al interactuar)
-            let autoPlay = setInterval(() => {
-                const width = carousel.clientWidth;
-                const currentIndex = Math.round(carousel.scrollLeft / width);
-                const nextIndex = (currentIndex + 1) % slides.length;
-                carousel.scrollTo({
-                    left: nextIndex * width,
-                    behavior: 'smooth'
-                });
-            }, 7000);
-
-            // Pausar auto-avance al interactuar
-            carousel.addEventListener('touchstart', () => clearInterval(autoPlay));
-            carousel.addEventListener('mousedown', () => clearInterval(autoPlay));
-            carousel.addEventListener('scroll', () => {
-                clearInterval(autoPlay);
-                // Reanudar después de 12 segundos de inactividad
-                clearTimeout(carousel._resumeTimeout);
-                carousel._resumeTimeout = setTimeout(() => {
-                    autoPlay = setInterval(() => {
-                        const width = carousel.clientWidth;
-                        const currentIndex = Math.round(carousel.scrollLeft / width);
-                        const nextIndex = (currentIndex + 1) % slides.length;
-                        carousel.scrollTo({
-                            left: nextIndex * width,
-                            behavior: 'smooth'
-                        });
-                    }, 7000);
-                }, 12000);
-            });
-        })();
+        // Espera 5 segundos (5000 milisegundos) para activar el desvanecimiento
+        setTimeout(function() {
+            var welcomeScreen = document.getElementById("welcome");
+            welcomeScreen.classList.add("fade-out");
+            
+            // Después de 1 segundo (cuando termina el fade), lo elimina del DOM
+            setTimeout(function() {
+                welcomeScreen.style.display = "none";
+            }, 1000);
+        }, 5000);
     </script>
 
 </body>
